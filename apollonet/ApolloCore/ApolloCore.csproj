@@ -2,17 +2,25 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>ApolloCore</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>marsonshine</Authors>
+    <Company>marsonshine</Company>
+    <PackageDescription>This package adds an ApolloCore</PackageDescription>
+    <RepositoryUrl>https://github.com/MS-Practice/apollo-demo</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
+
   <ItemGroup>
-    <!--<PackageReference Include="Com.Ctrip.Framework.Apollo.Configuration" Version="2.4.1" />-->
+    <PackageReference Include="Com.Ctrip.Framework.Apollo.Configuration" Version="2.4.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <ProjectReference Include="..\..\..\..\apollo.net\Apollo.Configuration\Apollo.Configuration.csproj" />
-  </ItemGroup>
+  </ItemGroup>-->
 
 </Project>
