@@ -10,7 +10,7 @@
     }
 
 
-    public class KeyValueConfig
+    public class Value
     {
         public string ModConfig { get; set; }
         public string ModUrl { get; set; }

@@ -27,7 +27,7 @@ namespace apollonet
             services.AddApolloClient(Configuration)
                 .AddMonitor<ModConfig>("ModConfig")
                 .AddMonitor<ModConfig>("ModConfig2")
-                .AddMonitor<KeyValueConfig>("application");
+                .AddMonitor<Value>("ModConfig");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
