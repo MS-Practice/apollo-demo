@@ -22,6 +22,13 @@ namespace apollonet
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureApolloConfiguration()
+                .ConfigureAppConfiguration((host,cfg)=> {
+                    cfg.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+                    if (!string.IsNullOrEmpty(host.HostingEnvironment.EnvironmentName))
+                    {
+                        cfg.AddJsonFile($"appsettings.{host.HostingEnvironment.EnvironmentName}.json", optional: true, reloadOnChange: true);
+                    }
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
