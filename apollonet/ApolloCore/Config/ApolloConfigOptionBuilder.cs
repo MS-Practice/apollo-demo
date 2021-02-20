@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Linq;
+using System.Reflection;
 
 namespace ApolloCore.Config
 {
@@ -21,6 +23,19 @@ namespace ApolloCore.Config
             where TConfig : class
         {
             _services.Configure<TConfig>(_configuration.GetSection(sectionName));
+            return this;
+        }
+
+        public ApolloConfigOptionBuilder RegisterWatcherAssemblyTypes(params Assembly[] assemblies)
+        {
+            if (assemblies.Length > 0)
+            {
+                var types = assemblies.SelectMany(assembly => assembly.GetTypes().Where(p => typeof(IConfigWatcher).IsAssignableFrom(p)));
+                foreach (var t in types)
+                {
+                    _services.Add(new ServiceDescriptor(typeof(IConfigWatcher), t, ServiceLifetime.Transient));
+                }
+            }
             return this;
         }
     }
